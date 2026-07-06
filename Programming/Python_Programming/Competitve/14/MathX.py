@@ -1,0 +1,6 @@
+Addition=lambda No1,No2:(No1+No2)
+Multiply =lambda No1 ,No2:(No1*No2)
+GreatestofThree=lambda No1,No2,No3:(No1 if No1>No2 and No1>No3  else (  No2 if No2>No1 and No2>No3   else No3))
+GreatestofTwo=lambda No1,No2:(No1 if No1>No2  else No2)
+MinimumOfTwo=lambda No1,No2:(No1 if No2>No1 else No2)
+EvenorOdd=lambda No1:(No1%2==0)
