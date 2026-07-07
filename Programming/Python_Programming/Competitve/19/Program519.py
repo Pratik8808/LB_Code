@@ -1,3 +1,4 @@
+Multiply2=lambda No:No*2
 from functools import reduce
 def ChkPrime(Number):
     flag=True
@@ -14,19 +15,22 @@ def PrimeorNot(No):
         Ret=ChkPrime(i)
         if(Ret==True):
             Data.append(i)
+    
+    return Data
         
 
 
 
 MapSquare=lambda no:no*no
 Addition=lambda no1,no2:no1+no2
+Max=lambda no1,no2:(no1 if(no1>no2)else no2)
 def main():
-   Data=[5,2,3,4,3,4,1,2,8,10]
+   Data=[2,70,11,10,17,23,31,77]
    FData=PrimeorNot(Data)
    print(FData)
-   MData=list(map(MapSquare,FData))
+   MData=list(map(Multiply2,FData))
    print(MData)
-   RData=reduce(Addition,MData)
+   RData=reduce(Max,MData)
    print(f"This is reduce function Addtion {RData}")
 
 
