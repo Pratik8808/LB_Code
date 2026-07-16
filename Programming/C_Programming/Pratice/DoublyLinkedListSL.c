@@ -18,7 +18,7 @@ void display(PNODE first)
     while(first!=NULL)
     {
         
-        printf("|%d|<->",first->data);
+        printf("|%d|->",first->data);
         first=first->next;
     }
     printf("NULL<=>\n");
@@ -150,11 +150,46 @@ void InsertFirst(PPNODE first,int iNo )
         {
             InsertFirst(first,iNo);
         }
+        else if(iPos==iCount+1)
+        {
+            InsertAtLast(first,iNo);
+        }
 
     }
 
-    void DeleteAtPost(PPNODE first, int iNo)
+    void DeleteAtPost(PPNODE first, int iNo,int iPos)
     {
+        int i=0;
+        int iCount=Count((*first));
+       if(first==NULL)
+       {
+        return;
+       }
+       if(iPos<1 || iPos>iCount)
+       {
+          printf("Wrong Postion\n");
+          return;
+       }
+       if(iPos==1)
+       {
+        InsertFirst(first,iNo);
+       }
+       else if(iPos==iCount+1)
+       {
+        InsertAtLast(first,iNo);
+       }
+       else 
+       {
+          PNODE temp=*first;
+         for (i=1;i<iPos-1;i++)
+         {
+            temp=temp->next;
+         }
+         temp->next=temp->next->next;
+         free(temp->next->next->prev);
+         temp->next->next->prev=temp;
+          
+       }
 
     }
 
@@ -165,6 +200,7 @@ int main()
     InsertAtLast(&head,21);
     InsertAtLast(&head,51);
     InsertAtLast(&head,101);
+      InsertAtLast(&head,111);
     iRet=Count(head);
     display(head);
     printf("Count after InsertAtLAst is %d\n",iRet);
@@ -175,7 +211,7 @@ int main()
     display(head);
     printf("Count after InsertAtlast is %d\n",iRet);
 
-     DeleteAtFirst(&head);
+    InsertAtPost(&head,105,3);
      iRet=Count(head);
     display(head);
     printf("Count after DeleteAtFirst is %d\n",iRet);
