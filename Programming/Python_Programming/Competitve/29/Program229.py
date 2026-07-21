@@ -18,6 +18,7 @@ def FileReader(DirectoryPath):
 def main():
     if(len(sys.argv)==2):
         FileReader(sys.argv[1])
+        print()
     else:
         print("Please enter Correct System Arugment")
 
