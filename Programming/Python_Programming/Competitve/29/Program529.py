@@ -31,7 +31,7 @@ def main():
     if(len(sys.argv)==3):
 
         Ret=CompareFile(sys.argv[1],sys.argv[2])
-        if(Ret):
+        if(Ret):    
             print("Same File ")
    
 if __name__=="__main__":
