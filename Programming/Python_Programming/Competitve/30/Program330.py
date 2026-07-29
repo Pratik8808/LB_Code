@@ -10,7 +10,7 @@ def main():
    
     print(Border)
     
-    schedule.every(30).minutes.do(Display)
+    schedule.every(30).minutes.do(Display,Message=)
     while True:
         schedule.run_pending()
         time.sleep(1)
