@@ -1,0 +1,48 @@
+import java.util.Scanner;
+import java.io.*;
+
+public class Program247
+{
+    public static void ShowFileName(String Directory)
+    {
+        File s1 = new File(Directory);
+        String FileName = "Marvellous.txt";
+
+        if(s1.isDirectory())
+        {
+            try
+            {
+                File[] files = s1.listFiles();
+
+                BufferedWriter s2 = new BufferedWriter(new FileWriter(FileName, true));
+
+                for(File f : files)
+                {
+                    if(f.isFile())
+                    {
+                        s2.write(f.getName());
+                        s2.newLine();
+
+                        System.out.println(f.getName());
+                    }
+                }
+
+                s2.close();
+            }
+            catch(Exception e)
+            {
+                System.out.println(e);
+            }
+        }
+    }
+
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter Directory Name:");
+        String s1 = sc.nextLine();
+
+        ShowFileName(s1);
+    }
+}
